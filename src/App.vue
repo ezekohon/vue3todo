@@ -1,16 +1,24 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import { onMounted } from 'vue'
-import { getAllTodos } from './api/todos.js'
+import { storeToRefs } from 'pinia'
+import { useTodos } from './store/useTodos'
+import TodoList from './components/TodoList.vue'
+import AddTodo from './components/AddTodo.vue'
+
+const { getAllTodos } = useTodos();
 
 onMounted(async () => {
-  console.log(await getAllTodos())
+  await getAllTodos();
 })
 </script>
 
 <template>
-  <h1>TODOS</h1>
+  <h1 class="title">TODOS</h1>
+  <div class="container">
+    
+    <AddTodo></AddTodo>
+    <TodoList></TodoList>
+  </div> 
 </template>
 
 <style>
@@ -21,5 +29,9 @@ onMounted(async () => {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.title {
+  color: rgb(156, 189, 222);
 }
 </style>
