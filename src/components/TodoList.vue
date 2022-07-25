@@ -2,12 +2,13 @@
 import Todo from './Todo.vue'
 import { storeToRefs } from 'pinia'
 import { useTodos } from './../store/useTodos'
-const { todos, sortedTodos } = storeToRefs(useTodos())
+const { currentTodoList } = storeToRefs(useTodos())
+
 </script>
 
 <template>
   <div class="list">
-   <Todo v-for="todo in sortedTodos" :todo="todo"></Todo>
+   <Todo v-for="todo in currentTodoList" :todo="todo"></Todo>
   </div>
 </template>
 

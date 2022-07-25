@@ -23,6 +23,7 @@ const onEnter = async(e: KeyboardEvent) => {
         newTodo.value = "";
         todos.value.push(todo);
         await createTodo(todo);
+        getAllTodos();
     }
 }
 

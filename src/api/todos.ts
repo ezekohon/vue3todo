@@ -39,4 +39,18 @@ async function updateTodo(id: number|undefined, is_done: boolean): Promise<void>
   }
 }
 
-export { getAllTodos, addTodo, updateTodo };
+async function deleteTodo(id: number|undefined): Promise<void> {
+  try {
+    const { data, error } = await supabase
+      .from('todos')
+      .delete()
+      .match({ id: id })
+      .single()
+  }
+  catch(err) {
+    console.log(err);
+    
+  }
+}
+
+export { getAllTodos, addTodo, updateTodo, deleteTodo };
