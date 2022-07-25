@@ -1,2 +1,4 @@
-# Vue 3 + TypeScript + Vite + Pinia + Supabase
+# Todo App
+
+Using Vue 3 + TypeScript + Vite + Pinia + Supabase
 
